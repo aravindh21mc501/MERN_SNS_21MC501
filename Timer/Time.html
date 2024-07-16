@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Title</title>
+    <style>
+        body{
+            height: auto;
+            width: auto;
+            background-color: lightblue;
+            
+        }
+        .border {
+            border-radius: 300px;
+            padding: 20px;
+            border-style: dotted;
+        }
+        .h{
+            border: 10px solid yellow;
+            border-radius: 70%;
+            height: 470px;
+            padding-top: 150px;
+            background-color: rgb(0, 0, 0);
+            color: greenyellow;
+            
+        }
+    </style>
+</head>
+<center>
+
+<body class="container shadow-lg">
+    <div class="row ">
+        <div class="col-md-6 offest-md-3  text-center">
+            <h1 class="display-5 mb-5 p-2 text-danger"><h> STOP WATCH </b></h1>
+            <div class="display-1  h shadow-lg font-weight-bold font-weight-bold fw-bold card-body mb-5 " id="seconds">00:00:00</div>
+            <button id="startbtn" onclick="startclock()" class="btn me-lg-4 mb-5 p-4 shadow-lg border btn-secondary"> start</button>
+            <button id="pausebtn" onclick="pauseclock()" class="btn ms-5 mb-5 p-4 shadow-lg border btn-warning"> stop</button>
+            <button id="resetbtn" onclick="resetclock()" class="btn ms-5 mb-5 p-4 shadow-lg border btn-danger"> reset </button>
+        </div>
+    </div>
+</center>
+
+    <script>
+        
+
+        let seconds = 0;
+        let minutes = 0;
+        let hours = 0;
+        
+        var Interval
+        function startclock(){
+            Interval = setInterval(incrementSeconds, 1000);
+        }
+        function pauseclock(){
+            clearInterval(Interval)
+            Interval = null
+        }
+        function resetclock(){
+            clearInterval(Interval)
+            Interval = null
+        }
+
+    function incrementSeconds(){
+        seconds++;
+        minutes+=Math.floor(seconds/60)
+        seconds=Math.floor(seconds%60)
+        hours+=Math.floor(minutes/60)
+        minutes=Math.floor(minutes%60)
+        document.getElementById('seconds').innerHTML =`${hours}:${minutes}:${seconds}`;
+    }
+
+        
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>
