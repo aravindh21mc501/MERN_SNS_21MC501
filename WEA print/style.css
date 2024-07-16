@@ -1,0 +1,15 @@
+body {
+    background-image: url(weather.png);
+}
+.display-2{
+    background-color: yellow;
+}
+.container {
+    background-color: greenyellow;
+    
+}
+.card-body {
+    background-color: green;
+    font-family: 'Courier New', Courier, monospace;
+
+}
