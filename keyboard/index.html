@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>keyboard</title>
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+
+
+    <style>
+        body {
+            background-color: rgb(214, 214, 214);
+        }
+
+        .container {
+            margin: 160px 0 0 200px;
+        }
+
+        input {
+            width: 950px;
+            height: 50px;
+            border-radius: 10px;
+            margin: 10px;
+            box-shadow: 5px 5px 10px #474343, -5px -5px 10px #fff;
+            font-size: 20px;
+        }
+
+        .row {
+            width: 100%;
+            height: 60px;
+        }
+
+        .one,
+        .two,
+        .three,
+        .four,
+        .five {
+            margin: 10px 0 0 0;
+        }
+
+        button {
+            background-color:grey;
+            color: #fff;
+            width: 55px;
+            height: 55px;
+            border: none;
+            box-shadow: 5px 5px 10px #474343, -5px -5px 10px #fff;
+            font-size: 20px;
+            margin-left: 5px;
+            outline: none;
+            font-family: Arial, Helvetica, sans-serif;
+            border-radius: 20%
+        }
+
+        button:active {
+            box-shadow: 1px 1px 2px yellowgreen, -1px -1px 2px #474343;
+        }
+
+        .backspace {
+            width: 115px;
+            border-radius: 10px
+        }
+
+        .tab {
+            width: 85px;
+            border-radius: 10px;
+        }
+
+        .slace {
+            width: 85px;
+            border-radius: 10px;
+        }
+
+        .caps {
+            width: 100px;
+            border-radius: 10px;
+        }
+
+        .enter {
+            width: 135px;
+            border-radius: 10px;
+        }
+
+        .shift {
+            width: 150px;
+            border-radius: 10px;
+        }
+
+        .bottom {
+            width: 82px;
+            border-radius: 10px;
+        }
+
+        .space {
+            width: 400px;
+            border-radius: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="container">
+        <div class="keyboard_wrapp">
+            <div class="display">
+                <input type="text" id="screen" class="en" placeholder="Text">
+            </div>
+        </div>
+
+        <div class="keyboard_keys">
+            <div class="row one">
+                <button>`</button>
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>4</button>
+                <button>5</button>
+                <button>6</button>
+                <button>7</button>
+                <button>8</button>
+                <button>9</button>
+                <button>0</button>
+                <button>-</button>
+                <button>=</button>
+                <button class="backspace">Backspace</button>
+            </div>
+
+            <div class="row two">
+                <button class="tab">Tab</button>
+                <button>Q</button>
+                <button>W</button>
+                <button>E</button>
+                <button>R</button>
+                <button>T</button>
+                <button>Y</button>
+                <button>U</button>
+                <button>I</button>
+                <button>O</button>
+                <button>P</button>
+                <button>[</button>
+                <button>]</button>
+                <button class="slace">\</button>
+            </div>
+
+            <div class="row three">
+                <button class="caps">Caps</button>
+                <button>A</button>
+                <button>S</button>
+                <button>D</button>
+                <button>F</button>
+                <button>G</button>
+                <button>H</button>
+                <button>J</button>
+                <button>K</button>
+                <button>L</button>
+                <button>;</button>
+                <button>'</button>
+                <button class="enter">Enter</button>
+            </div>
+
+            <div class="row four">
+                <button class="shift">Shift</button>
+                <button>Z</button>
+                <button>X</button>
+                <button>C</button>
+                <button>V</button>
+                <button>B</button>
+                <button>N</button>
+                <button>M</button>
+                <button><</button>
+                <button>></button>
+                <button>?</button>
+                <button class="shift">Shift</button>
+            </div>
+
+            <div class="row five">
+                <button class="bottom">Ctrl</button>
+                <button class="bottom"><i class='bx bxl-windows'></i></button>
+                <button class="bottom">Alt</button>
+                <button class="space">Space</button>
+                <button class="bottom">Alt</button>
+                <button class="bottom"><i class='bx bxl-windows'></i></button>
+                <button>ctrl</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const input = document.getElementById("screen");
+            const keys = document.querySelectorAll("button");
+
+            keys.forEach(key => {
+                key.addEventListener("click", () => {
+                    let value = key.textContent;
+
+                    switch (value) {
+                        case 'Backspace':
+                            input.value = input.value.slice(0, -1);
+                            break;
+                        case 'Tab':
+                            input.value += '\t';
+                            break;
+                        case 'Caps':
+                          
+                            break;
+                        case 'Enter':
+                            input.value += '\n';
+                            break;
+                        case 'Shift':
+                   
+                            break;
+                        case 'Ctrl':
+                        case 'Alt':
+                        case '':
+                            break;
+                        case 'Space':
+                            input.value += ' ';
+                            break;
+                        default:
+                            input.value += value;
+                            break;
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
